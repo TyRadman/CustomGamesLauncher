@@ -1,0 +1,26 @@
+﻿<Window x:Class="GamesLauncher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GamesLauncher"
+        mc:Ignorable="d"
+        Title="Games Launcher" Height="800" Width="800">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/UITemplates/GameButtonTemplate.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+
+    <Grid x:Name="x_mainGrid" MinHeight="450" MinWidth="800">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" MaxWidth="400"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <!--<Button Content="Hello" Style="{StaticResource GameButtonStyle}" />-->
+    </Grid>
+</Window>

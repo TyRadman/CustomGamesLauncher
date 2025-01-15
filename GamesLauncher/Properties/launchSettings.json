@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "GamesLauncher": {
+      "commandName": "Project",
+      "commandLineArgs": "output"
+    }
+  }
+}
