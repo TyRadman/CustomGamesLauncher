@@ -110,8 +110,9 @@ namespace GamesLauncher.LauncherDataBuilders
                 HorizontalScrollBarVisibility = ScrollBarVisibility.Auto,
                 VerticalScrollBarVisibility = ScrollBarVisibility.Disabled,
                 Margin = new Thickness(5),
-                Background = Brushes.Transparent
+                Background = Brushes.Transparent,
             };
+
 
             StackPanel stack = new StackPanel()
             {
@@ -128,20 +129,22 @@ namespace GamesLauncher.LauncherDataBuilders
 
                 Button gameButton = CreateGameButton(game);
                 stack.Children.Add(gameButton);
-                Console.WriteLine($"{_settings.LauncherName}: Added game button: {gameButton.Content}");
             }
 
             Grid.SetColumn(gamesScrollViewer, 1);
+            Grid.SetRow(gamesScrollViewer, _settings.RowIndex);
             _mainGrid?.Children.Add(gamesScrollViewer);
         }
 
         private Button CreateGameButton(GameInfo game)
         {
-            ImageBrush buttonBackgroundBrush = new ImageBrush()
+            try
             {
-                ImageSource = new BitmapImage(new Uri(game.IconUrl)),
-                Stretch = Stretch.UniformToFill
-            };
+                ImageBrush buttonBackgroundBrush = new ImageBrush()
+                {
+                    ImageSource = new BitmapImage(new Uri(game.IconUrl)),
+                    Stretch = Stretch.UniformToFill
+                };
 
             object styleObject = _parentWindow.TryFindResource("GameButtonStyle");
 
@@ -162,6 +165,14 @@ namespace GamesLauncher.LauncherDataBuilders
             gameButton.Click += (object sender, RoutedEventArgs e) => GameButton_Click(sender, e, game);
 
             return gameButton;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error at link {game.IconUrl}");
+                Console.WriteLine($"Error loading game icon: {ex.Message}");
+            }
+
+            return null;
         }
 
         private void GameButton_Click(object sender, RoutedEventArgs e, GameInfo game)
