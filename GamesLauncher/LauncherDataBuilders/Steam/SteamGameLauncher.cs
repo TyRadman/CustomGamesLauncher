@@ -101,6 +101,7 @@ namespace GamesLauncher.LauncherDataBuilders.Steam
                     if (!string.IsNullOrEmpty(exePath))
                     {
                         gameInfo.ExecutablePath = exePath;
+                        gameInfo.IconImage = GetHighResolutionIcon(exePath);
                     }
                     else
                     {

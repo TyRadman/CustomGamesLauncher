@@ -22,9 +22,11 @@
     <None Remove="Assets\Icons\Icon_EpicGames.png" />
     <None Remove="Assets\Icons\Icon_GOG.png" />
     <None Remove="Assets\Icons\Icon_Steam.png" />
+    <None Remove="Assets\Icon_Controller.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Assets\Icon_Games.png" />
     <Resource Include="Assets\Fonts\Commissioner-Black.ttf" />
     <Resource Include="Assets\Fonts\Commissioner-Bold.ttf" />
     <Resource Include="Assets\Fonts\Commissioner-ExtraBold.ttf" />

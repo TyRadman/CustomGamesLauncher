@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GamesLauncher"
         mc:Ignorable="d"
-        Title="Games Launcher" Height="800" Width="800">
+        Title="Games Launcher" Height="700" Width="700">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -21,6 +21,7 @@
             <ColumnDefinition Width="1*" MaxWidth="400"></ColumnDefinition>
             <ColumnDefinition Width="2*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        
         <!--<Button Content="Hello" Style="{StaticResource GameButtonStyle}" />-->
     </Grid>
 </Window>

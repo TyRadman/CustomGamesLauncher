@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+﻿using GamesLauncher.Utilities;
+using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -7,12 +9,6 @@ namespace GamesLauncher.LauncherDataBuilders.EpicGames
 {
     internal class EpicGameLauncher : GameLauncher
     {
-        private const string TEST = $"https://store-content.ak.epicgames.com/api/en-US/content/catalog/namespace/NAME_SPACE/catalogItem/CATALOG_ITEM_ID";
-        //private const string CATALOG_NAMESPACE = "CatalogNamespace";
-        //private const string CATALOG_ITEM_ID = "CatalogItemId";
-        private const string CATALOG_NAMESPACE = "MainGameCatalogNamespace";
-        private const string CATALOG_ITEM_ID = "MainGameCatalogItemId";
-
         public override ImageSource GetIconImage()
         {
             return new BitmapImage(new Uri("pack://application:,,,/GamesLauncher;component/Assets/Icons/Icon_EpicGames.png"));
@@ -38,13 +34,12 @@ namespace GamesLauncher.LauncherDataBuilders.EpicGames
 
                     if (gameInfo != null)
                     {
-                        Console.WriteLine($"Added game {gameInfo.Name}");
+                        //Console.WriteLine($"Added game {gameInfo.Name}");
                         installedGames.Add(gameInfo);
                     }
                 }
             }
 
-            Console.WriteLine($"got {installedGames.Count} games");
             return installedGames;
         }
 
@@ -78,60 +73,30 @@ namespace GamesLauncher.LauncherDataBuilders.EpicGames
 
             foreach (string line in lines)
             {
-                Console.WriteLine($"EPIC Line: {line}");
+                //Console.WriteLine($"EPIC Line: {line}");
 
                 if (line.Contains("\"bIsApplication\""))
                 {
                     string isApplication = line.Split(':')[1].Trim(' ', '"').Trim(',');
 
-                    Console.WriteLine($"\n{isApplication}");
-
                     if(isApplication == "false")
                     {
-                        Console.WriteLine("Not a game\n\n\n");
                         return null;
                     }
                 }
 
                 if (line.Contains("\"DisplayName\""))
                 {
-                    gameInfo.Name = line.Split(':')[1].Trim(' ', '"');
+                    gameInfo.Name = line.Split(':')[1].Trim(' ', '"').Trim().Trim(',').Trim('"');
                 }
 
                 if (line.Contains("\"InstallLocation\""))
                 {
-                    installDir = line.Split(':')[1].Trim(' ', '"');
+                    string[] splits = line.Split(':');
+                    installDir = $"{splits[1]}:{splits[2]}".Trim(' ').Trim(',').Trim().Trim('"');
                 }
-
-                if (line.Contains("\"MainIcon\""))
-                {
-                    string iconPath = line.Split(':')[1].Trim(' ', '"');
-                    gameInfo.IconUrl = iconPath;
-
-                    Console.WriteLine($"EPIC Icon path: {iconPath}");
-                }
-
-                if (line.Contains($"\"{CATALOG_NAMESPACE}\""))
-                {
-                    catalogNamespace = line.Split(':')[1].Trim().Trim(',').Trim('"');
-                    Console.WriteLine(line.Split(':')[1].Trim().Trim(',').Trim('"'));
-                }
-
-                if (line.Contains($"\"{CATALOG_ITEM_ID}\""))
-                {
-                    catalogItemId = line.Split(':')[1].Trim().Trim(',').Trim('"');
-                    Console.WriteLine(line.Split(':')[1].Trim().Trim(',').Trim('"'));
-                }
-                //if(line.Contains("\"name\""))
             }
-
-            if (!string.IsNullOrEmpty(catalogNamespace) && !string.IsNullOrEmpty(catalogItemId))
-            {
-                string url = TEST.Replace("NAME_SPACE", catalogNamespace).Replace("CATALOG_ITEM_ID", catalogItemId);
-                gameInfo.IconUrl = $"https://store-content.ak.epicgames.com/api/en-US/content/catalog/namespace/{catalogNamespace}/catalogItem/{catalogItemId}";
-                Console.WriteLine($"EPIC Icon URL: {gameInfo.IconUrl}");
-            }
-
+            
             if (!string.IsNullOrEmpty(installDir) && Directory.Exists(installDir))
             {
                 // Search for the .exe in the install directory and subdirectories
@@ -140,6 +105,8 @@ namespace GamesLauncher.LauncherDataBuilders.EpicGames
                 if (!string.IsNullOrEmpty(exePath))
                 {
                     gameInfo.ExecutablePath = exePath;
+                    Helper.Debug($"GEtting icon for {exePath}");
+                    gameInfo.IconImage = GetHighResolutionIcon(exePath);
                 }
                 else
                 {
@@ -154,7 +121,14 @@ namespace GamesLauncher.LauncherDataBuilders.EpicGames
         {
             try
             {
-                var exeFiles = Directory.GetFiles(directoryPath, "*.exe", SearchOption.AllDirectories);
+                string[] exeFiles = Directory.GetFiles(directoryPath, "*.exe", SearchOption.AllDirectories);
+
+                if(exeFiles.Length == 0)
+                {
+                    Console.WriteLine($"No executables found in {directoryPath}");
+                    return string.Empty;
+                }
+
                 return exeFiles.FirstOrDefault();
             }
             catch (Exception ex)

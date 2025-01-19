@@ -48,12 +48,10 @@ namespace GamesLauncher
 
                 List<GameInfo> launcherGames = launcher.GetInstalledGames();
 
-                //Console.WriteLine($"\n\nLoading launcher: {launcher.GetDisplayName()}. Games count: {launcherGames.Count}");
-
-                //for (int j = 0; j < launcherGames.Count; j++)
-                //{
-                //    Console.WriteLine($"{launcherGames[j].Name}");
-                //}
+                if(launcherGames == null || launcherGames.Count == 0)
+                {
+                    continue;
+                }
 
                 LauncherSettings settings = new LauncherSettings()
                 {

@@ -11,6 +11,7 @@ namespace GamesLauncher.LauncherDataBuilders
         private Grid? _mainGrid;
         private Window _parentWindow;
         private LauncherSettings _settings;
+        private Style _buttonStyle;
 
         private readonly int _launcherButtonsColumnIndex = 0;
         private readonly int _headerIconMaxSize = 100;
@@ -22,6 +23,7 @@ namespace GamesLauncher.LauncherDataBuilders
 
         public void AddLoader(Grid parentGrid, LauncherSettings settings, Window parentWindow)
         {
+
             if (parentGrid == null)
             {
                 throw new ArgumentNullException(nameof(parentGrid));
@@ -38,6 +40,17 @@ namespace GamesLauncher.LauncherDataBuilders
             }
 
             _parentWindow = parentWindow;
+
+            var styleObject = _parentWindow.TryFindResource("GameButtonStyle");
+
+            if (styleObject is not Style gameButtonStyle)
+            {
+                throw new InvalidOperationException("GameButtonStyle not found in resources.");
+            }
+            else
+            {
+                _buttonStyle = gameButtonStyle;
+            }
 
             _mainGrid = parentGrid;
             _settings = settings;
@@ -93,7 +106,17 @@ namespace GamesLauncher.LauncherDataBuilders
 
             titleGrid.Children.Add(icon, nameTextBlock);
 
-            _mainGrid?.Children.Add(titleGrid);
+            if (_mainGrid != null)
+            {
+                RowDefinition row = new RowDefinition()
+                {
+                    Height = new GridLength(1, GridUnitType.Star)
+                };
+
+                _mainGrid.RowDefinitions.Add(row);
+
+                _mainGrid.Children.Add(titleGrid);
+            }
         }
         
         private void AddLauncherGames()
@@ -112,7 +135,6 @@ namespace GamesLauncher.LauncherDataBuilders
                 Margin = new Thickness(5),
                 Background = Brushes.Transparent,
             };
-
 
             StackPanel stack = new StackPanel()
             {
@@ -142,29 +164,39 @@ namespace GamesLauncher.LauncherDataBuilders
             {
                 ImageBrush buttonBackgroundBrush = new ImageBrush()
                 {
-                    ImageSource = new BitmapImage(new Uri(game.IconUrl)),
-                    Stretch = Stretch.UniformToFill
+                    Stretch = Stretch.Uniform
                 };
 
-            object styleObject = _parentWindow.TryFindResource("GameButtonStyle");
+                if (game.IconImage != null)
+                {
+                    buttonBackgroundBrush.ImageSource = game.IconImage;
+                }
+                else if (!String.IsNullOrEmpty(game.IconUrl))
+                {
+                    buttonBackgroundBrush.ImageSource = new BitmapImage(new Uri(game.IconUrl));
+                }
 
-            if(styleObject is not Style gameButtonStyle)
-            {
-                throw new InvalidOperationException("GameButtonStyle not found in resources.");
-            }
+                RenderOptions.SetBitmapScalingMode(buttonBackgroundBrush, BitmapScalingMode.NearestNeighbor);
 
-            Button gameButton = new Button()
-            {
-                Content = game.Name,
-                Style = gameButtonStyle
-            };
+                Button gameButton = new Button()
+                {
+                    Content = game.Name,
+                    Style = _buttonStyle
+                };
 
-            gameButton.Background = buttonBackgroundBrush;
+                if (buttonBackgroundBrush.ImageSource != null)
+                {
+                    gameButton.Background = buttonBackgroundBrush;
+                }
+                else
+                {
+                    Helper.Error($"Error at link {game.Name}");
+                }
 
 
-            gameButton.Click += (object sender, RoutedEventArgs e) => GameButton_Click(sender, e, game);
+                gameButton.Click += (object sender, RoutedEventArgs e) => GameButton_Click(sender, e, game);
 
-            return gameButton;
+                return gameButton;
             }
             catch (Exception ex)
             {
