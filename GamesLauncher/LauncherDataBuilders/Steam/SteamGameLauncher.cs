@@ -114,23 +114,6 @@ namespace GamesLauncher.LauncherDataBuilders.Steam
             return gameInfo;
         }
 
-        private string FindExecutableInDirectory(string directoryPath)
-        {
-            try
-            {
-                // Get all .exe files in the directory and subdirectories
-                var exeFiles = Directory.GetFiles(directoryPath, "*.exe", SearchOption.AllDirectories);
-
-                // Return the first .exe file found, if any
-                return exeFiles.FirstOrDefault();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error while searching for executables: {ex.Message}");
-                return string.Empty;
-            }
-        }
-
 
         public override void RunGame(GameInfo gameInfo)
         {

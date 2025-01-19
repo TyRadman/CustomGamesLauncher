@@ -105,7 +105,7 @@ namespace GamesLauncher.LauncherDataBuilders.EpicGames
                 if (!string.IsNullOrEmpty(exePath))
                 {
                     gameInfo.ExecutablePath = exePath;
-                    Helper.Debug($"GEtting icon for {exePath}");
+                    //Helper.Debug($"GEtting icon for {exePath}");
                     gameInfo.IconImage = GetHighResolutionIcon(exePath);
                 }
                 else

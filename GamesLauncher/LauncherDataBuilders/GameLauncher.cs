@@ -16,14 +16,33 @@ namespace GamesLauncher.LauncherDataBuilders
         public abstract List<GameInfo> GetInstalledGames();
         public abstract void RunGame(GameInfo gameInfo);
 
+        protected string FindExecutableInDirectory(string directoryPath)
+        {
+            try
+            {
+                string[] exeFiles = Directory.GetFiles(directoryPath, "*.exe", SearchOption.AllDirectories);
+
+                if (exeFiles.Length == 0)
+                {
+                    Console.WriteLine($"No executables found in {directoryPath}");
+                    return string.Empty;
+                }
+
+                return exeFiles.FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error while searching for executables: {ex.Message}");
+                return string.Empty;
+            }
+        }
+
         protected BitmapImage GetHighResolutionIcon(string filePath)
         {
             filePath = filePath.Replace("/", "\\").Replace("\\\\", "\\");
 
-            Helper.Debug($"GEtting icon for {filePath}");
             try
             {
-                Helper.Debug($"GEtting icon for {filePath}");
                 var hIcon = GetIconFromShell(filePath);
 
                 if (hIcon != IntPtr.Zero)
