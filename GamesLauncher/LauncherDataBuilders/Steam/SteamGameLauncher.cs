@@ -96,7 +96,7 @@ namespace GamesLauncher.LauncherDataBuilders.Steam
                 if (Directory.Exists(gameDir))
                 {
                     // Search for the .exe in the game directory and subdirectories
-                    string exePath = FindExecutableInDirectory(gameDir);
+                    string exePath = FindExecutableInDirectory(gameDir).FirstOrDefault();
 
                     if (!string.IsNullOrEmpty(exePath))
                     {

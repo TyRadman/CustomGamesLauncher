@@ -16,24 +16,24 @@ namespace GamesLauncher.LauncherDataBuilders
         public abstract List<GameInfo> GetInstalledGames();
         public abstract void RunGame(GameInfo gameInfo);
 
-        protected string FindExecutableInDirectory(string directoryPath)
+        protected List<string> FindExecutableInDirectory(string directoryPath)
         {
             try
             {
-                string[] exeFiles = Directory.GetFiles(directoryPath, "*.exe", SearchOption.AllDirectories);
+                List<string> exeFiles = Directory.GetFiles(directoryPath, "*.exe", SearchOption.AllDirectories).ToList();
 
-                if (exeFiles.Length == 0)
+                if (exeFiles.Count == 0)
                 {
                     Console.WriteLine($"No executables found in {directoryPath}");
-                    return string.Empty;
+                    return null;
                 }
 
-                return exeFiles.FirstOrDefault();
+                return exeFiles;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error while searching for executables: {ex.Message}");
-                return string.Empty;
+                return null;
             }
         }
 
@@ -111,6 +111,28 @@ namespace GamesLauncher.LauncherDataBuilders
         [DllImport("Comctl32.dll", CharSet = CharSet.Auto)]
         private static extern IntPtr ImageList_GetIcon(IntPtr himl, int i, uint flags);
 
+        protected string GetLargestExecutable(List<string> paths)
+        {
+            if (paths == null || paths.Count == 0)
+            {
+                return string.Empty;
+            }
+
+            string largestExecutable = string.Empty;
+            long largestSize = 0;
+
+            foreach (string path in paths)
+            {
+                FileInfo fileInfo = new FileInfo(path);
+                if (fileInfo.Length > largestSize)
+                {
+                    largestSize = fileInfo.Length;
+                    largestExecutable = path;
+                }
+            }
+
+            return largestExecutable;
+        }
     }
 
     public class GameInfo

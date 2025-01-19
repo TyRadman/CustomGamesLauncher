@@ -43,20 +43,19 @@ namespace GamesLauncher.LauncherDataBuilders.BattleNet
                     Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86)
                 ];
 
-            foreach (string drive in pahts)
+            foreach (string path in pahts)
             {
-
                 foreach (string gameName in BattleNetGames)
                 {
                     try
                     {
                         // Recursively search for game folders
-                        string gamePath = FindGameDirectory(drive, gameName);
+                        string gamePath = FindGameDirectory(path, gameName);
 
                         if (!string.IsNullOrEmpty(gamePath))
                         {
                             // Find the executable file in the directory
-                            string exePath = FindExecutableInDirectory(gamePath);
+                            string exePath = FindExecutableInDirectory(gamePath).FirstOrDefault();
 
                             if (!string.IsNullOrEmpty(exePath))
                             {
@@ -88,7 +87,7 @@ namespace GamesLauncher.LauncherDataBuilders.BattleNet
 
             if (!Directory.Exists(gamePath))
             {
-                Console.WriteLine($"Game {gameName} wasn't found in {rootPath}");
+                //Console.WriteLine($"Game {gameName} wasn't found in {rootPath}");
                 return string.Empty;
             }
 
