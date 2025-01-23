@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\timde\\Documents\\GitHub\\GamesLauncher\\GamesLauncher\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{040B3E10-EF75-4A4A-B722-7CCDA780E93A}|GamesLauncher\\GamesLauncher.csproj|c:\\users\\timde\\documents\\github\\gameslauncher\\gameslauncher\\gameslauncher\\gameslauncher.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{040B3E10-EF75-4A4A-B722-7CCDA780E93A}|GamesLauncher\\GamesLauncher.csproj|solutionrelative:gameslauncher\\gameslauncher.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{040B3E10-EF75-4A4A-B722-7CCDA780E93A}|GamesLauncher\\GamesLauncher.csproj|c:\\users\\timde\\documents\\github\\gameslauncher\\gameslauncher\\gameslauncher\\launcherdatabuilders\\gog\\goggamelauncher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{040B3E10-EF75-4A4A-B722-7CCDA780E93A}|GamesLauncher\\GamesLauncher.csproj|solutionrelative:gameslauncher\\launcherdatabuilders\\gog\\goggamelauncher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -51,10 +55,6 @@
       "RelativeMoniker": "D:0:0:{040B3E10-EF75-4A4A-B722-7CCDA780E93A}|GamesLauncher\\GamesLauncher.csproj|solutionrelative:gameslauncher\\resources\\uitemplates\\animations\\gamebuttonanimationtemplate.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{040B3E10-EF75-4A4A-B722-7CCDA780E93A}|GamesLauncher\\GamesLauncher.csproj|c:\\users\\timde\\documents\\github\\gameslauncher\\gameslauncher\\gameslauncher\\gameslauncher.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{040B3E10-EF75-4A4A-B722-7CCDA780E93A}|GamesLauncher\\GamesLauncher.csproj|solutionrelative:gameslauncher\\gameslauncher.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{040B3E10-EF75-4A4A-B722-7CCDA780E93A}|GamesLauncher\\GamesLauncher.csproj|c:\\users\\timde\\documents\\github\\gameslauncher\\gameslauncher\\gameslauncher\\gameslauncher.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{040B3E10-EF75-4A4A-B722-7CCDA780E93A}|GamesLauncher\\GamesLauncher.csproj|solutionrelative:gameslauncher\\gameslauncher.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
@@ -74,11 +74,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 223,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 14,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\timde\\Documents\\GitHub\\GamesLauncher\\GamesLauncher\\GamesLauncher\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "GamesLauncher\\MainWindow.xaml.cs",
@@ -91,7 +91,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "LauncherDataLoader.cs",
               "DocumentMoniker": "C:\\Users\\timde\\Documents\\GitHub\\GamesLauncher\\GamesLauncher\\GamesLauncher\\LauncherDataBuilders\\LauncherDataLoader.cs",
               "RelativeDocumentMoniker": "GamesLauncher\\LauncherDataBuilders\\LauncherDataLoader.cs",
@@ -100,12 +100,11 @@
               "ViewState": "AgIAAIUAAAAAAAAAAAAiwKAAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-14T21:35:33.895Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "GameLauncher.cs",
               "DocumentMoniker": "C:\\Users\\timde\\Documents\\GitHub\\GamesLauncher\\GamesLauncher\\GamesLauncher\\LauncherDataBuilders\\GameLauncher.cs",
               "RelativeDocumentMoniker": "GamesLauncher\\LauncherDataBuilders\\GameLauncher.cs",
@@ -114,12 +113,11 @@
               "ViewState": "AgIAABoAAAAAAAAAAAAiwIgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-14T22:49:48.163Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "GOGGameLauncher.cs",
               "DocumentMoniker": "C:\\Users\\timde\\Documents\\GitHub\\GamesLauncher\\GamesLauncher\\GamesLauncher\\LauncherDataBuilders\\GOG\\GOGGameLauncher.cs",
               "RelativeDocumentMoniker": "GamesLauncher\\LauncherDataBuilders\\GOG\\GOGGameLauncher.cs",
@@ -133,7 +131,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "SteamGameLauncher.cs",
               "DocumentMoniker": "C:\\Users\\timde\\Documents\\GitHub\\GamesLauncher\\GamesLauncher\\GamesLauncher\\LauncherDataBuilders\\Steam\\SteamGameLauncher.cs",
               "RelativeDocumentMoniker": "GamesLauncher\\LauncherDataBuilders\\Steam\\SteamGameLauncher.cs",
@@ -142,12 +140,11 @@
               "ViewState": "AgIAAD0AAAAAAAAAAAAhwGIAAABYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-14T22:52:15.71Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "EpicGamesGameLauncher.cs",
               "DocumentMoniker": "C:\\Users\\timde\\Documents\\GitHub\\GamesLauncher\\GamesLauncher\\GamesLauncher\\LauncherDataBuilders\\EpicGames\\EpicGamesGameLauncher.cs",
               "RelativeDocumentMoniker": "GamesLauncher\\LauncherDataBuilders\\EpicGames\\EpicGamesGameLauncher.cs",
@@ -156,12 +153,11 @@
               "ViewState": "AgIAAFYAAAAAAAAAAAD4v3cAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-14T22:59:09.599Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "BattleNetGameLauncher.cs",
               "DocumentMoniker": "C:\\Users\\timde\\Documents\\GitHub\\GamesLauncher\\GamesLauncher\\GamesLauncher\\LauncherDataBuilders\\BattleNet\\BattleNetGameLauncher.cs",
               "RelativeDocumentMoniker": "GamesLauncher\\LauncherDataBuilders\\BattleNet\\BattleNetGameLauncher.cs",
@@ -170,12 +166,11 @@
               "ViewState": "AgIAACkAAAAAAAAAAAAtwDkAAABhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-14T22:59:54.829Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\timde\\Documents\\GitHub\\GamesLauncher\\GamesLauncher\\GamesLauncher\\MainWindow.xaml",
               "RelativeDocumentMoniker": "GamesLauncher\\MainWindow.xaml",
@@ -186,7 +181,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "GameButtonTemplate.xaml",
               "DocumentMoniker": "C:\\Users\\timde\\Documents\\GitHub\\GamesLauncher\\GamesLauncher\\GamesLauncher\\Resources\\UITemplates\\GameButtonTemplate.xaml",
               "RelativeDocumentMoniker": "GamesLauncher\\Resources\\UITemplates\\GameButtonTemplate.xaml",
@@ -198,7 +193,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "GameButtonAnimationTemplate.xaml",
               "DocumentMoniker": "C:\\Users\\timde\\Documents\\GitHub\\GamesLauncher\\GamesLauncher\\GamesLauncher\\Resources\\UITemplates\\Animations\\GameButtonAnimationTemplate.xaml",
               "RelativeDocumentMoniker": "GamesLauncher\\Resources\\UITemplates\\Animations\\GameButtonAnimationTemplate.xaml",
@@ -246,7 +241,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Helper.cs",
               "DocumentMoniker": "C:\\Users\\timde\\Documents\\GitHub\\GamesLauncher\\GamesLauncher\\GamesLauncher\\Utilities\\Helper.cs",
               "RelativeDocumentMoniker": "GamesLauncher\\Utilities\\Helper.cs",
@@ -258,18 +253,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 0,
               "Title": "GamesLauncher",
               "DocumentMoniker": "C:\\Users\\timde\\Documents\\GitHub\\GamesLauncher\\GamesLauncher\\GamesLauncher\\GamesLauncher.csproj",
               "RelativeDocumentMoniker": "GamesLauncher\\GamesLauncher.csproj",
               "ToolTip": "C:\\Users\\timde\\Documents\\GitHub\\GamesLauncher\\GamesLauncher\\GamesLauncher\\GamesLauncher.csproj",
               "RelativeToolTip": "GamesLauncher\\GamesLauncher.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-01-18T23:08:37.741Z"
+              "WhenOpened": "2025-01-18T23:08:37.741Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "App.xaml",
               "DocumentMoniker": "C:\\Users\\timde\\Documents\\GitHub\\GamesLauncher\\GamesLauncher\\GamesLauncher\\App.xaml",
               "RelativeDocumentMoniker": "GamesLauncher\\App.xaml",
